@@ -1,0 +1,41 @@
+name: Publish to Zenodo Sandbox
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-zenodo:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Récupère le code
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      # 2. Compile le LaTeX
+      - name: Compile PDF
+        run: |
+          cd papers/latex
+          make
+      
+      # 3. Prépare l'archive avec le PDF
+      - name: Create release archive
+        run: |
+          mkdir -p release
+          cp papers/latex/main.pdf release/
+          cd release
+          zip -r ../zenodo-release.zip main.pdf
+      
+      # 4. Upload vers Zenodo Sandbox
+      - name: Upload to Zenodo
+        uses: rseng/zenodo-release@main
+        with:
+          token: ${{ secrets.ZENODO_SANDBOX_TOKEN }}
+          version: ${{ github.event.release.tag_name }}
+          zenodo_json: .zenodo.json
+          archive: zenodo-release.zip
+          # 🔑 TON DOI CONCEPT ICI
+          doi: ${{ secrets.ZENODO_DOI }} '10.5072/zenodo.432539' # doi
+        env:
+          ZENODO_URL: 'https://sandbox.zenodo.org/api'
