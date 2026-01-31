@@ -22,6 +22,8 @@ all: $(PDF)
 $(PDF): $(MAIN).tex $(MAIN).bib
 	latexmk -pdf -Werror $(MAIN).tex
 	@echo "✓ Compilation successful - no undefined references or citations."
+	@echo "✓ MD5 file checksum: $$(md5sum $(PDF))"
+
 
 # Compile without bibliography
 .PHONY: quick
@@ -37,6 +39,9 @@ clean:
 .PHONY: cleanall
 cleanall: clean
 	rm -f $(PDF)
+
+.PHONY: deploy
+deploy: cleanall all
 
 # View PDF (Linux)
 .PHONY: view
@@ -61,5 +66,6 @@ help:
 	@echo "  make quick    - Quick compile without bibliography"
 	@echo "  make clean    - Remove auxiliary files"
 	@echo "  make cleanall - Remove all generated files including PDF"
+	@echo "  make deploy   - Prepare for deploy/publication"
 	@echo "  make view     - Open PDF in viewer"
 	@echo "  make help     - Show this help message"
