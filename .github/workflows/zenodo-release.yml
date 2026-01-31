@@ -16,9 +16,9 @@ jobs:
        # 2. Compile le LaTeX
       - name: Compile LaTeX to PDF
         uses: xu-cheng/latex-action@v3
-        run: |
-          cd papers/latex
-          make
+        with:
+          working_directory: papers/latex
+          compiler: make
       
       # 3. Prépare l'archive avec le PDF
       - name: Create release archive
