@@ -13,20 +13,37 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-       # 2. Compile le LaTeX
-      - name: Compile LaTeX to PDF
-        uses: xu-cheng/latex-action@v3
+      # Cache des packages LaTeX
+      - name: Cache LaTeX packages
+        uses: actions/cache@v3
+        id: cache-latex
         with:
-          working_directory: papers/latex
-          compiler: make
+          path: |
+            /usr/share/texlive
+            /usr/share/texmf
+            /var/lib/texmf
+          key: latex-${{ runner.os }}-v1
       
-      # 3. Prépare l'archive avec le PDF
-      - name: Create release archive
+      # Installation uniquement si cache miss
+      - name: Install LaTeX
+        if: steps.cache-latex.outputs.cache-hit != 'true'
         run: |
-          mkdir -p release
-          cp papers/latex/main.pdf release/
-          cd release
-          zip -r ../zenodo-release.zip main.pdf
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-bibtex-extra \
+            latexmk
+      
+      - name: Compile PDF
+        run: |
+          cd papers/latex
+          make
+      
+      - name: Verify PDF exists
+        run: ls -lh papers/latex/main.pdf
       
       # 4. Upload vers Zenodo Sandbox
       - name: Upload to Zenodo
