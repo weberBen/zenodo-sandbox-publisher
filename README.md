@@ -1,4 +1,4 @@
-# Zenodo githuh CI
+# Zenodo sandbox for the [Zenodo publisher tool](https://github.com/weberBen/zenodo-publisher)
 
 Dummy example of supported repo for the [Zenodo publisher tool](https://github.com/weberBen/zenodo-publisher)
 
@@ -30,9 +30,10 @@ Identifier: 10.5072/zenodo.<record id>
 
 And in sandbox, the doi does not resolve.
 
-## Steps
+## Usage
 
+- Clone the repo
 - Create a new token [here](https://sandbox.zenodo.org/account/settings/applications/tokens/new/). Allow `deposit:actions`and `deposit:write`
-- In your Github repo, set a new [`action repository secret`](https://github.com/weberBen/zenodo-sandbox/settings/secrets/actions) Name if `ZENODO_SANDBOX_TOKEN` and paste you Zenodo token
-- Adapt info in `.zenodo.json`
-- 
+- Adapt the `zenodo.env.example` to `.zenodo.env`
+- Make modifications
+- Use the publisher tool and follow given instructions
