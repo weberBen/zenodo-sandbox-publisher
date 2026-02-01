@@ -1,5 +1,7 @@
 # Zenodo githuh CI
 
+Dummy example of supported repo for the [Zenodo publisher tool](https://github.com/weberBen/zenodo-publisher)
+
 ## Testing info
 
 Make test using the [sandbox](https://sandbox.zenodo.org/) of zenodo.
