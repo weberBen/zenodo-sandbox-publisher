@@ -17,3 +17,5 @@
 *.zip
 *.swp
 *.tmp
+*.asc
+*.sig
