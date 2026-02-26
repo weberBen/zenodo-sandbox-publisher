@@ -22,7 +22,7 @@ all: $(PDF)
 $(PDF): $(MAIN).tex $(MAIN).bib
 	latexmk -pdf -Werror $(MAIN).tex
 	@echo "✓ Compilation successful - no undefined references or citations."
-	@echo "✓ MD5 file checksum: $$(md5sum $(PDF))"
+	@echo "-> MD5 file checksum: $$(md5sum $(PDF))"
 
 
 # Compile without bibliography
@@ -42,8 +42,8 @@ cleanall: clean
 
 .PHONY: deploy
 deploy: cleanall all
-	@echo "SOURCE_DATE_EPOCH: $$SOURCE_DATE_EPOCH"
-	@echo "GIT_COMMIT_SHA: $$GIT_COMMIT_SHA"
+	@echo "-> SOURCE_DATE_EPOCH: $$SOURCE_DATE_EPOCH"
+	@echo "-> GIT_COMMIT_SHA: $$GIT_COMMIT_SHA"
 
 # View PDF (Linux)
 .PHONY: view
