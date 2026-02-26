@@ -1,5 +1,9 @@
 # Makefile for LaTeX document compilation
 
+ifdef ZP_COMMIT_DATE_EPOCH
+export SOURCE_DATE_EPOCH ?= $(ZP_COMMIT_DATE_EPOCH)
+endif
+
 # Main document name (without .tex extension)
 MAIN = main
 
@@ -43,7 +47,7 @@ cleanall: clean
 .PHONY: deploy
 deploy: cleanall all
 	@echo "-> SOURCE_DATE_EPOCH: $$SOURCE_DATE_EPOCH"
-	@echo "-> GIT_COMMIT_SHA: $$GIT_COMMIT_SHA"
+	@echo "-> ZP_COMMIT_SHA: $$ZP_COMMIT_SHA"
 
 # View PDF (Linux)
 .PHONY: view
