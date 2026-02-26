@@ -42,6 +42,8 @@ cleanall: clean
 
 .PHONY: deploy
 deploy: cleanall all
+	@echo "SOURCE_DATE_EPOCH: $$SOURCE_DATE_EPOCH"
+	@echo "GIT_COMMIT_SHA: $$GIT_COMMIT_SHA"
 
 # View PDF (Linux)
 .PHONY: view
