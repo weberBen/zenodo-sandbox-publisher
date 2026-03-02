@@ -19,3 +19,4 @@
 *.tmp
 *.asc
 *.sig
+manifest-*.json
