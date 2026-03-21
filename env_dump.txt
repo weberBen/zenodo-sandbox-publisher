@@ -1,0 +1,10 @@
+ZP_COMMIT_DATE_EPOCH=1774126225
+ZP_COMMIT_SHA=4112d4730b36b8d84f5ea5d546ed431f0fe8a8f9
+ZP_COMMIT_SUBJECT=second commit for epoch test
+ZP_COMMIT_AUTHOR_NAME=ben weber
+ZP_COMMIT_AUTHOR_EMAIL=36738038+weberBen@users.noreply.github.com
+ZP_COMMIT_COMMITTER_NAME=ben weber
+ZP_COMMIT_COMMITTER_EMAIL=36738038+weberBen@users.noreply.github.com
+ZP_BRANCH=main
+ZP_ORIGIN_URL=git@github.com:weberBen/zenodo-sandbox.git
+SOURCE_DATE_EPOCH=1774126225
