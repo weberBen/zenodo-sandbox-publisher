@@ -32,10 +32,12 @@ generated_files:
       file_destination: [github, zenodo]
   project:
     rename: true
+    archive: false
     publishers:
       file_destination: [zenodo]
   manifest:
     files: [paper, project]
+    archive: false
     commit_info: [sha, date_epoch]
     sign: true
     publishers:
