@@ -15,7 +15,7 @@ archive:
   dir: papers/latex/releases
 
 hash_algorithms: [md5, sha256, tree]
-sign_hash_algo: sha256
+sign_hash_algo: md5
 
 signing:
   sign: true
@@ -29,9 +29,6 @@ generated_files:
   paper:
     pattern: "{compile_dir}/main.pdf"
     rename: true
-    identifier:
-      use_as_alternate_identifier: true
-      source: file
     publishers:
       file_destination: [github, zenodo]
   project:
@@ -42,6 +39,9 @@ generated_files:
   manifest:
     files: [paper, project]
     archive: false
+    identifier:
+      use_as_alternate_identifier: true
+      source: file
     commit_info: [sha, date_epoch]
     sign: true
     publishers:
