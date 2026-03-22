@@ -2,7 +2,3 @@
 .env
 *.env
 zenodo_config.yaml
-
-output.txt
-
-papers/
