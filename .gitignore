@@ -2,6 +2,3 @@
 .env
 *.env
 zenodo_config.yaml
-
-*.log
-sub/
