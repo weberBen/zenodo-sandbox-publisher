@@ -28,6 +28,9 @@ generated_files:
   paper:
     pattern: "{compile_dir}/main.pdf"
     rename: true
+    identifier:
+      use_as_alternate_identifier: true
+      source: file
     publishers:
       file_destination: [github, zenodo]
   project:
