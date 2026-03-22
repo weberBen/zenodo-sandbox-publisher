@@ -2,3 +2,7 @@
 .env
 *.env
 zenodo_config.yaml
+
+paper1.txt
+paper2.txt
+paper3.txt
