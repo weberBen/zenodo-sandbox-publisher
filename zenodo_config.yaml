@@ -15,11 +15,11 @@ archive:
   dir: papers/latex/releases
 
 hash_algorithms: [md5, sha256, tree]
-sign_hash_algo: md5
 
 signing:
   sign: true
   sign_mode: file
+  sign_hash_algo: md5
 
 zenodo:
   api_url: "https://sandbox.zenodo.org/api"
@@ -40,6 +40,7 @@ generated_files:
     files: [paper, project]
     archive: false
     identifier:
+      prefix: "manifest-"
       use_as_alternate_identifier: true
       source: file
     commit_info: [sha, date_epoch]
