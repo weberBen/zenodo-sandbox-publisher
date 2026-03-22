@@ -46,6 +46,7 @@ generated_files:
     sign: true
     publishers:
       file_destination: [github, zenodo]
+      sig_destination: [github, zenodo]
 
 prompt_validation_level: danger
 
