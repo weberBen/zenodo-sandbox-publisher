@@ -26,7 +26,7 @@ zenodo:
 
 generated_files:
   paper:
-    pattern: "main.pdf"
+    pattern: "{compile_dir}/main.pdf"
     publishers:
       file_destination: [github, zenodo]
   project:
