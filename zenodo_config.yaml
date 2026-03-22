@@ -15,6 +15,7 @@ archive:
   dir: papers/latex/releases
 
 hash_algorithms: [md5, sha256, tree]
+sign_hash_algo: sha256
 
 signing:
   sign: true
