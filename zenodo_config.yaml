@@ -19,6 +19,7 @@ hash_algorithms: [md5, sha256, tree]
 signing:
   sign: true
   sign_mode: file
+  sign_hash_algo: sha256
 
 zenodo:
   api_url: "https://sandbox.zenodo.org/api"
@@ -30,6 +31,9 @@ generated_files:
     rename: true
     publishers:
       file_destination: [github, zenodo]
+    identifier:                                                              
+      source: file
+      use_as_alternate_identifier: true
   project:
     rename: true
     archive: false
@@ -40,6 +44,10 @@ generated_files:
     archive: false
     commit_info: [sha, date_epoch]
     sign: true
+    identifier:                                                              
+      source: file
+      use_as_alternate_identifier: true
+      prefix: "manifest-"
     publishers:
       file_destination: [github, zenodo]
 
