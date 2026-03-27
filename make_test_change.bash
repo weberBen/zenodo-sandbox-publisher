@@ -44,5 +44,7 @@ if [[ "$CONFIRM" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
     if [[ "$CONFIRM2" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
         git commit -m "$COMMIT_MSG"
         git push
+        echo "Branch: $(git rev-parse --abbrev-ref HEAD)"
+        echo "Last commit: $(git rev-parse HEAD)"
     fi
 fi
