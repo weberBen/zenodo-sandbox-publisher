@@ -56,10 +56,16 @@ if [[ "$CONFIRM" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
             git push origin "$TAG_NAME"
             echo "Tag créé et poussé : ${TAG_NAME}"
         fi
+        LAST_COMMIT=$(git rev-parse HEAD)
         LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "(aucun tag)")
         if [[ "$LAST_TAG" != "(aucun tag)" ]]; then
             LAST_TAG_COMMIT=$(git rev-list -n 1 "$LAST_TAG")
             echo "Last tag: ${LAST_TAG} -> ${LAST_TAG_COMMIT}"
+            if [[ "$LAST_TAG_COMMIT" == "$LAST_COMMIT" ]]; then
+                echo "Tag pointe sur le dernier commit (HEAD)"
+            else
+                echo "Tag ne pointe PAS sur le dernier commit"
+            fi
         else
             echo "Last tag: (aucun tag)"
         fi
