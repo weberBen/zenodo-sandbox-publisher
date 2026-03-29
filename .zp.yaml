@@ -62,7 +62,7 @@ generated_files:
       destination:
         file: [github, zenodo]
         digicert_timestamp: [github]
-      modules:
-        digicert_timestamp: {}
+    modules:
+      digicert_timestamp: {}
 
 prompt_validation_level: danger
