@@ -33,6 +33,7 @@ generated_files:
     publishers:
       destination:
         file: [github, zenodo]
+        sig: [github]
     identifier:
       source: file
       use_as_alternate_identifier: true
@@ -56,6 +57,5 @@ generated_files:
     publishers:
       destination:
         file: [github, zenodo]
-        sig: [github]
 
 prompt_validation_level: danger
