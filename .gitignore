@@ -1,3 +1,5 @@
 .claude/*
 .env
 *.env
+
+env_dump.txt
