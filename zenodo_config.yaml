@@ -13,7 +13,7 @@ compile:
 archive:
   format: zip
   dir: papers/latex/releases
-  archive_types: [file, sig]
+  types: [file, sig]
 
 hash_algorithms: [md5, sha256, tree]                                   
 identity_hash_algo: md5
