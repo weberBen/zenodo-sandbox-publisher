@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+AUTO_YES=false
+if [[ "${1:-}" == "-y" ]]; then
+    AUTO_YES=true
+    shift
+fi
+
 TEX_FILE="$(git rev-parse --show-toplevel)/papers/latex/main.tex"
 
 if [[ ! -f "$TEX_FILE" ]]; then
@@ -33,14 +39,22 @@ sed -i "${MATCH_LINE}s/\b${CURRENT}\b/${NEXT}/" "$TEX_FILE"
 echo "Incremented number on line ${MATCH_LINE}: ${CURRENT} -> ${NEXT}"
 
 # Prompt for git commit & push
-read -r -p "Commit and push? [Enter/Y/yes to confirm, anything else to skip]: " CONFIRM
-CONFIRM="${CONFIRM:-yes}"
+if $AUTO_YES; then
+    CONFIRM="yes"
+else
+    read -r -p "Commit and push? [Enter/Y/yes to confirm, anything else to skip]: " CONFIRM
+    CONFIRM="${CONFIRM:-yes}"
+fi
 if [[ "$CONFIRM" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
     COMMIT_MSG="${1:-test}"
     git add .
     git status
-    read -r -p "Continuer avec le commit et le push? [Enter/Y/yes pour confirmer, autre pour annuler]: " CONFIRM2
-    CONFIRM2="${CONFIRM2:-yes}"
+    if $AUTO_YES; then
+        CONFIRM2="yes"
+    else
+        read -r -p "Continuer avec le commit et le push? [Enter/Y/yes pour confirmer, autre pour annuler]: " CONFIRM2
+        CONFIRM2="${CONFIRM2:-yes}"
+    fi
     if [[ "$CONFIRM2" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
         git commit -m "$COMMIT_MSG"
         git push
@@ -49,8 +63,12 @@ if [[ "$CONFIRM" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
 
         TAG_SUFFIX=$(head -c 64 /dev/urandom | tr -dc 'a-zA-Z' | head -c 8)
         TAG_NAME="template_${TAG_SUFFIX}"
-        read -r -p "Créer et pousser le tag ${TAG_NAME} ? [Enter/Y/yes pour confirmer, autre pour annuler]: " CONFIRM_TAG
-        CONFIRM_TAG="${CONFIRM_TAG:-yes}"
+        if $AUTO_YES; then
+            CONFIRM_TAG="yes"
+        else
+            read -r -p "Créer et pousser le tag ${TAG_NAME} ? [Enter/Y/yes pour confirmer, autre pour annuler]: " CONFIRM_TAG
+            CONFIRM_TAG="${CONFIRM_TAG:-yes}"
+        fi
         if [[ "$CONFIRM_TAG" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
             git tag "$TAG_NAME"
             git push origin "$TAG_NAME"
