@@ -2,6 +2,10 @@ project_name:
   prefix: "MyProject"
   suffix: "-{tag_name}"
 
+modules:
+  digicert_timestamp:
+    full_chain: true
+
 main_branch: main
 github:
   check_draft: false
@@ -45,7 +49,7 @@ generated_files:
         file: [zenodo]
 
   manifest:
-    archive_types: [file]
+    archive_types: [file, digicert_timestamp]
     commit_info: [sha, date_epoch]
     sign: true
     content:
@@ -57,5 +61,8 @@ generated_files:
     publishers:
       destination:
         file: [github, zenodo]
+        digicert_timestamp: [github]
+      modules:
+        digicert_timestamp: {}
 
 prompt_validation_level: danger
