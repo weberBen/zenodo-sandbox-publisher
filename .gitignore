@@ -1,5 +1,3 @@
 .claude/*
 .env
 *.env
-
-build_test/output.txt
