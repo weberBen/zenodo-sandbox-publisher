@@ -1,6 +1,3 @@
 .claude/*
 .env
 *.env
-
-result.txt
-builddir/
