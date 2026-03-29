@@ -53,8 +53,8 @@ generated_files:
       project: [file]
     identifier:
       source: file
-      use_as_alternate_identifier: true                              
-    publishers:                        
+      use_as_alternate_identifier: true
+    publishers:
       destination:
         file: [github, zenodo]
 
