@@ -62,9 +62,9 @@ if [[ "$CONFIRM" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
             LAST_TAG_COMMIT=$(git rev-list -n 1 "$LAST_TAG")
             echo "Last tag: ${LAST_TAG} -> ${LAST_TAG_COMMIT}"
             if [[ "$LAST_TAG_COMMIT" == "$LAST_COMMIT" ]]; then
-                echo "Tag pointe sur le dernier commit (HEAD)"
+                echo "Tag pointe sur le dernier commit (HEAD): TRUE"
             else
-                echo "Tag ne pointe PAS sur le dernier commit"
+                echo "Tag pointe sur le dernier commit (HEAD): FALSE"
             fi
         else
             echo "Last tag: (aucun tag)"
