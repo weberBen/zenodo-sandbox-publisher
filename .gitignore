@@ -1,6 +1,3 @@
 .claude/*
 .env
 *.env
-
-*.log
-sub/
