@@ -1,11 +1,11 @@
-project_name:
-  prefix: "MyProject"
-  suffix: "-{tag_name}"
-
+project_name:                                                          
+  prefix: "MyProject"                                                
+  suffix: "-{tag_name}"                
+                                                                        
 main_branch: main
-github:
-  check_draft: false
-
+github:                                                                
+  check_draft: false                                                 
+                                        
 compile:
   enabled: true
   dir: papers/latex
@@ -13,43 +13,49 @@ compile:
 archive:
   format: zip
   dir: papers/latex/releases
+  archive_types: [file, sig]
 
-hash_algorithms: [md5, sha256, tree]
-
-signing:
-  sign: true
+hash_algorithms: [md5, sha256, tree]                                   
+identity_hash_algo: md5
+                                                                        
+signing:                                                             
+  sign: true                           
   sign_mode: file
-  sign_hash_algo: md5
 
 zenodo:
   api_url: "https://sandbox.zenodo.org/api"
   concept_doi: "432538"
 
-generated_files:
+generated_files:                                                       
   paper:
-    pattern: "{compile_dir}/main.pdf"
-    rename: true
-    publishers:
-      file_destination: [github, zenodo]
-    identifier:                                                              
+    pattern: "{compile_dir}/main.pdf"                                  
+    rename: true                                                     
+    publishers:                        
+      destination:
+        file: [github, zenodo]
+        sig: [github]
+    identifier:
       source: file
       use_as_alternate_identifier: true
-  project:
-    rename: true
-    archive: false
-    publishers:
-      file_destination: [zenodo]
+
+  project:                                                             
+    archive_types: []
+    publishers:                                                        
+      destination:                                                   
+        file: [zenodo]                 
+
   manifest:
-    files: [paper, project]
-    archive: false
+    archive_types: []
     commit_info: [sha, date_epoch]
     sign: true
-    identifier:                                                              
-      source: file
-      use_as_alternate_identifier: true
-      prefix: "manifest-"
-    publishers:
-      file_destination: [github, zenodo]
+    content:
+      paper: [file]
+      project: [file]                                                  
+    identifier:
+      source: file                                                     
+      use_as_alternate_identifier: true                              
+    publishers:                        
+      destination:
+        file: [github, zenodo]
 
 prompt_validation_level: danger
-
