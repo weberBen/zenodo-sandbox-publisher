@@ -47,7 +47,7 @@ if [[ "$CONFIRM" =~ ^([Yy]([Ee][Ss])?|)$ ]]; then
         echo "Branch: $(git rev-parse --abbrev-ref HEAD)"
         echo "Last commit: $(git rev-parse HEAD)"
 
-        TAG_SUFFIX=$(cat /dev/urandom | tr -dc 'a-zA-Z' | head -c 8)
+        TAG_SUFFIX=$(head -c 64 /dev/urandom | tr -dc 'a-zA-Z' | head -c 8)
         TAG_NAME="template_${TAG_SUFFIX}"
         read -r -p "Créer et pousser le tag ${TAG_NAME} ? [Enter/Y/yes pour confirmer, autre pour annuler]: " CONFIRM_TAG
         CONFIRM_TAG="${CONFIRM_TAG:-yes}"
