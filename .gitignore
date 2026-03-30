@@ -1,6 +1,7 @@
 .claude/*
 .env
 *.env
+*.tsr
 
 .zp/modules/**
 !.zp/modules/.gitkeep
