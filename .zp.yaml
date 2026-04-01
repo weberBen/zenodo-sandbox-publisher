@@ -21,6 +21,7 @@ archive:
 
 hash_algorithms: [md5, sha256, tree]
 identity_hash_algo: sha256
+identity_key: hash
 
 signing:
   sign: true
