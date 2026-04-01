@@ -38,9 +38,10 @@ generated_files:
       destination:
         file: [github, zenodo]
         sig: [github]
-    identifier:
-      source: file
-      use_as_alternate_identifier: true
+    publish_identity_hash:                                               
+      destination:
+        file: [github, zenodo]
+        sig: [github]
 
   project:
     archive_types: []
@@ -55,9 +56,9 @@ generated_files:
     content:
       paper: [file]
       project: [file]
-    identifier:
-      source: file
-      use_as_alternate_identifier: true
+    publish_identity_hash:                                               
+      destination:
+        file: [github, zenodo]
     publishers:
       destination:
         file: [github, zenodo]
