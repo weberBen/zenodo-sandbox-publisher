@@ -5,5 +5,3 @@
 
 .zp/*
 !.zp/modules/.gitkeep
-
-build_test/output.txt
