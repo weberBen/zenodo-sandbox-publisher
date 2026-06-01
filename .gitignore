@@ -5,6 +5,3 @@
 
 .zp/*
 !.zp/modules/.gitkeep
-
-papers/
-code/
