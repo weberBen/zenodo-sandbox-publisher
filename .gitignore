@@ -5,5 +5,3 @@
 
 .zp/*
 !.zp/modules/.gitkeep
-
-env_dump.txt
