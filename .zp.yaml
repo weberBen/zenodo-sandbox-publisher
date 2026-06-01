@@ -39,7 +39,7 @@ generated_files:
       destination:
         file: [github, zenodo]
         sig: [github]
-    publish_identity_hash:                                               
+    publish_identity_hash:
       destination:
         file: [github, zenodo]
         sig: [github]
@@ -57,7 +57,7 @@ generated_files:
     content:
       paper: [file]
       project: [file]
-    publish_identity_hash:                                               
+    publish_identity_hash:
       destination:
         file: [github, zenodo]
     publishers:
