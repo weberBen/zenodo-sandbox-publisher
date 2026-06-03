@@ -5,14 +5,14 @@ project_name:
 modules:
   digicert_timestamp:
     full_chain: true
- ots_timestamp:
-   calendars:
-     - https://a.pool.opentimestamps.org
-     - https://b.pool.opentimestamps.org
-     - https://a.pool.eternitywall.com
-   nonce: true
-   upgrade:
-     save_header: true
+  ots_timestamp:
+    calendars:
+      - https://a.pool.opentimestamps.org
+      - https://b.pool.opentimestamps.org
+      - https://a.pool.eternitywall.com
+    nonce: true
+    upgrade:
+      save_header: true
 
 main_branch: main
 github:
