@@ -1,81 +1,79 @@
-project_name:                                         
-  prefix: "MyProject"                                   
-  suffix: "-{tag_name}"                                 
-                                                        
-modules:                                                
-  digicert_timestamp:                                   
-    full_chain: true                                    
- ots_timestamp:                                         
-   calendars:                                           
-     - https://a.pool.opentimestamps.org                
-     - https://b.pool.opentimestamps.org                
-     - https://a.pool.eternitywall.com                  
-   nonce: true                                          
-   upgrade:                                             
-     save_header: true                                  
-                                                        
-main_branch: main                                       
-github:                                                 
-  check_draft: false                                    
-                                                        
-compile:                                                
-  enabled: true                                         
-  dir: papers/latex                                     
-                                                        
-archive:                                                
-  format: zip                                           
-  dir: papers/latex/releases                            
-  types: [file, sig]                                    
-                                                        
-hash_algorithms: [md5, sha256, tree]                    
-identity_hash_algo: sha256                              
-identity_key: hash                                      
-                                                        
-signing:                                                
-  sign: true                                            
-  sign_mode: file                                       
-                                                        
-zenodo:                                                 
-  api_url: "https://sandbox.zenodo.org/api"             
-  concept_doi: "432538"                                 
-                                                        
-generated_files:                                        
-  paper:                                                
-    pattern: "{compile_dir}/main.pdf"                   
-    rename: true                                        
-    publishers:                                         
-      destination:                                      
-        file: [github, zenodo]                          
-        sig: [github]                                   
-    publish_identity_hash:                              
-      destination:                                      
-        file: [github, zenodo]                          
-        sig: [github]                                   
-                                                        
-  project:                                              
-    archive_types: []                                   
-    publishers:                                         
-      destination:                                      
-        file: [zenodo]                                  
-                                                        
-  manifest:                                             
-    archive_types: [file, digicert_timestamp,           
-ots_timestamp]                                          
-    commit_info: [sha, date_epoch]                      
-    sign: true                                          
-    content:                                            
-      paper: [file]                                     
-      project: [file]                                   
-    publish_identity_hash:                              
-      destination:                                      
-        file: [github, zenodo]                          
-    publishers:                                         
-      destination:                                      
-        file: [github, zenodo]                          
-        digicert_timestamp: [github]                    
-        ots_timestamp: [github]                         
-    modules:                                            
-      digicert_timestamp: {}                            
-      ots_timestamp:                                    
-        input_types: [file, digicert_timestamp]         
-                                                 
+project_name:
+  prefix: "MyProject"
+  suffix: "-{tag_name}"
+
+modules:
+  digicert_timestamp:
+    full_chain: true
+ ots_timestamp:
+   calendars:
+     - https://a.pool.opentimestamps.org
+     - https://b.pool.opentimestamps.org
+     - https://a.pool.eternitywall.com
+   nonce: true
+   upgrade:
+     save_header: true
+
+main_branch: main
+github:
+  check_draft: false
+
+compile:
+  enabled: true
+  dir: papers/latex
+
+archive:
+  format: zip
+  dir: papers/latex/releases
+  types: [file, sig]
+
+hash_algorithms: [md5, sha256, tree]
+identity_hash_algo: sha256
+identity_key: hash
+
+signing:
+  sign: true
+  sign_mode: file
+
+zenodo:
+  api_url: "https://sandbox.zenodo.org/api"
+  concept_doi: "432538"
+
+generated_files:
+  paper:
+    pattern: "{compile_dir}/main.pdf"
+    rename: true
+    publishers:
+      destination:
+        file: [github, zenodo]
+        sig: [github]
+    publish_identity_hash:
+      destination:
+        file: [github, zenodo]
+        sig: [github]
+
+  project:
+    archive_types: []
+    publishers:
+      destination:
+        file: [zenodo]
+
+  manifest:
+    archive_types: [file, digicert_timestamp, ots_timestamp]
+    commit_info: [sha, date_epoch]
+    sign: true
+    content:
+      paper: [file]
+      project: [file]
+    publish_identity_hash:
+      destination:
+        file: [github, zenodo]
+    publishers:
+      destination:
+        file: [github, zenodo]
+        digicert_timestamp: [github]
+        ots_timestamp: [github]
+    modules:
+      digicert_timestamp: {}
+      ots_timestamp:
+        input_types: [file, digicert_timestamp]
