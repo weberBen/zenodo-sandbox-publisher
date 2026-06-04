@@ -10,6 +10,7 @@ modules:
       - https://a.pool.opentimestamps.org
       - https://b.pool.opentimestamps.org
       - https://a.pool.eternitywall.com
+      - https://ots.btc.catallaxy.com
     nonce: true
     upgrade:
       save_header: true
