@@ -6,3 +6,7 @@
 .zp/*
 !.zp/modules/.gitkeep
 papers/latex/releases/*
+
+paper1.txt
+paper2.txt
+paper3.txt
