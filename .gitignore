@@ -6,5 +6,3 @@
 .zp/*
 !.zp/modules/.gitkeep
 papers/latex/releases/*
-
-papers/
