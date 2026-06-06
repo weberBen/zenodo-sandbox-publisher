@@ -6,3 +6,5 @@
 .zp/*
 !.zp/modules/.gitkeep
 papers/latex/releases/*
+
+env_dump.txt
