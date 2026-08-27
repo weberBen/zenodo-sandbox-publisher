@@ -5,6 +5,7 @@ project_name:
 modules:
   digicert_timestamp:
     full_chain: true
+    include_root_ca: true
   ots_timestamp:
     calendars:
       - https://alice.btc.calendar.opentimestamps.org
